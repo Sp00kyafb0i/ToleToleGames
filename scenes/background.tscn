@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0roha2uubrvv"]
+
+[ext_resource type="Shader" path="res://shaders/waterShader.gdshader" id="1_y1d0e"]
+[ext_resource type="Texture2D" uid="uid://dx3xtu8x2vxjm" path="res://resources/Water.jpg" id="2_xuk7g"]
+[ext_resource type="Script" path="res://scripts/water.gd" id="3_mnpwb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cp0wh"]
+shader = ExtResource("1_y1d0e")
+shader_parameter/size = null
+shader_parameter/as = null
+shader_parameter/waterSpeed = null
+
+[node name="Background" type="Sprite2D"]
+visible = false
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_cp0wh")
+position = Vector2(11, 9)
+scale = Vector2(2.2185, 1.23031)
+texture = ExtResource("2_xuk7g")
+centered = false
+script = ExtResource("3_mnpwb")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvw2iife5e7xa"]
+
+[ext_resource type="Script" path="res://scripts/boat.gd" id="1_c50b5"]
+[ext_resource type="Texture2D" uid="uid://qhxknfly3ci4" path="res://resources/Boat.png" id="2_8vdeo"]
+[ext_resource type="Texture2D" uid="uid://55ckvgtd3eiq" path="res://resources/paddle.png" id="3_h1n55"]
+[ext_resource type="Script" path="res://scripts/paddle.gd" id="4_s8bir"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1d24x"]
+friction = 0.0
+
+[node name="BoatRigidBody" type="RigidBody2D"]
+position = Vector2(100, 100)
+physics_material_override = SubResource("PhysicsMaterial_1d24x")
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(-50, 0)
+linear_damp = 0.001
+script = ExtResource("1_c50b5")
+
+[node name="BoatCollisionShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, 0, -30, -30, -90, -40, -90, 40, -30, 30)
+
+[node name="BoatImage" type="Sprite2D" parent="BoatCollisionShape"]
+position = Vector2(0, -50)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8vdeo")
+centered = false
+
+[node name="PaddleLeft" type="Sprite2D" parent="." node_paths=PackedStringArray("boatToMove")]
+position = Vector2(-50, -30)
+rotation = -0.349066
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("3_h1n55")
+offset = Vector2(250, 0)
+script = ExtResource("4_s8bir")
+boatToMove = NodePath("..")
+
+[node name="PaddleRight" type="Sprite2D" parent="." node_paths=PackedStringArray("boatToMove")]
+position = Vector2(-50, 30)
+rotation = 0.349066
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("3_h1n55")
+offset = Vector2(250, 0)
+flip_v = true
+script = ExtResource("4_s8bir")
+boatToMove = NodePath("..")
+
+[node name="DesiredStearingLeft" type="Marker2D" parent="."]
+position = Vector2(50, 30)
+rotation = 0.349066
+
+[node name="DesiredStearingRight" type="Marker2D" parent="."]
+position = Vector2(50, -30)
+rotation = 0.698132
