@@ -8,7 +8,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1d24x"]
 friction = 0.0
 
-[node name="BoatRigidBody" type="RigidBody2D"]
+[node name="BoatRigidBody" type="RigidBody2D" groups=["Boat"]]
 position = Vector2(100, 100)
 physics_material_override = SubResource("PhysicsMaterial_1d24x")
 gravity_scale = 0.0
@@ -18,7 +18,7 @@ linear_damp = 0.001
 script = ExtResource("1_c50b5")
 
 [node name="BoatCollisionShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-10, 0, -30, -30, -90, -40, -90, 40, -30, 30)
+polygon = PackedVector2Array(-2, 0, -29, -36, -97, -45, -90, 0, -97, 45, -29, 36)
 
 [node name="BoatImage" type="Sprite2D" parent="BoatCollisionShape"]
 position = Vector2(0, -50)

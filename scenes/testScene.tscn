@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc27dim47vf33"]
+
+[ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/boat.tscn" id="1_50tgu"]
+[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_v41k3"]
+[ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="3_7triw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh4pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqrtk"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="BoatRigidBody" parent="." instance=ExtResource("1_50tgu")]
+position = Vector2(216, 228)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(600, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_sh4pv")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_v41k3")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(400, 500)
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("3_7triw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_iqrtk")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_v41k3")
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
