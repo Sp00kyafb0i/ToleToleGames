@@ -1,7 +1,8 @@
 extends RigidBody2D
 
-@onready var paddle_left = $PaddleLeft
-@onready var paddle_right = $PaddleRight
+@onready var paddle_right = $Player2/PaddleRight
+@onready var paddle_left = $Player1/PaddleLeft
+
 
 @onready var desired_stearing_left = $DesiredStearingLeft
 @onready var desired_stearing_right = $DesiredStearingRight
@@ -29,15 +30,9 @@ func _physics_process(delta):
 	stearingHeadingLeft = (desired_stearing_left.global_position-global_position).normalized()
 	stearingHeadingRight = (desired_stearing_right.global_position-global_position).normalized()
 	
-	if Input.is_action_just_pressed("GoLeft"):
-		paddle_left.movePaddle()
-	if Input.is_action_just_released("GoLeft"):
-		paddle_left.letGoPaddle()
-		
-	if Input.is_action_just_pressed("GoRight"):
-		paddle_right.movePaddle()
-	if Input.is_action_just_released("GoRight"):
-		paddle_right.letGoPaddle()
+	paddle_left.getInput()
+	paddle_right.getInput()
+
 	if healthPoints <= 0:
 		print("Dead")
 
@@ -52,3 +47,8 @@ func takeDamage(damage):
 	healthPoints-=damage
 	isVulnerable = false
 	print("Ouch")
+
+
+
+
+

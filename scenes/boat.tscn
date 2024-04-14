@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvw2iife5e7xa"]
+[gd_scene load_steps=11 format=3 uid="uid://dvw2iife5e7xa"]
 
 [ext_resource type="Script" path="res://scripts/boat.gd" id="1_c50b5"]
 [ext_resource type="Texture2D" uid="uid://qhxknfly3ci4" path="res://resources/Boat.png" id="2_8vdeo"]
+[ext_resource type="Script" path="res://scenes/Player1.gd" id="3_3x1q3"]
 [ext_resource type="Texture2D" uid="uid://55ckvgtd3eiq" path="res://resources/paddle.png" id="3_h1n55"]
-[ext_resource type="Script" path="res://scripts/paddle.gd" id="4_s8bir"]
+[ext_resource type="Script" path="res://scripts/PaddleLeft.gd" id="5_6mgdm"]
+[ext_resource type="Script" path="res://scenes/Player2.gd" id="6_uvmff"]
+[ext_resource type="Script" path="res://scripts/PaddleRight.gd" id="7_gepqe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1d24x"]
 friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik2xm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uniiv"]
 
 [node name="BoatRigidBody" type="RigidBody2D" groups=["Boat"]]
 position = Vector2(100, 100)
@@ -27,24 +34,40 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_8vdeo")
 centered = false
 
-[node name="PaddleLeft" type="Sprite2D" parent="." node_paths=PackedStringArray("boatToMove")]
+[node name="Player1" type="CharacterBody2D" parent="."]
 position = Vector2(-50, -30)
 rotation = -0.349066
 scale = Vector2(0.205, 0.205)
+slide_on_ceiling = false
+script = ExtResource("3_3x1q3")
+
+[node name="PaddleLeft" type="Sprite2D" parent="Player1"]
 texture = ExtResource("3_h1n55")
 offset = Vector2(250, 0)
-script = ExtResource("4_s8bir")
-boatToMove = NodePath("..")
+script = ExtResource("5_6mgdm")
 
-[node name="PaddleRight" type="Sprite2D" parent="." node_paths=PackedStringArray("boatToMove")]
-position = Vector2(-50, 30)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
+shape = SubResource("RectangleShape2D_ik2xm")
+disabled = true
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+position = Vector2(-57.5284, 20.7152)
+scale = Vector2(0.042025, 0.042025)
+slide_on_ceiling = false
+script = ExtResource("6_uvmff")
+
+[node name="PaddleRight" type="Sprite2D" parent="Player2"]
+position = Vector2(179.141, 220.936)
 rotation = 0.349066
-scale = Vector2(0.205, 0.205)
+scale = Vector2(4.87805, 4.87805)
 texture = ExtResource("3_h1n55")
 offset = Vector2(250, 0)
 flip_v = true
-script = ExtResource("4_s8bir")
-boatToMove = NodePath("..")
+script = ExtResource("7_gepqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+shape = SubResource("RectangleShape2D_uniiv")
+disabled = true
 
 [node name="DesiredStearingLeft" type="Marker2D" parent="."]
 position = Vector2(50, 30)
