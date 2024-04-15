@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5hufqs7sbm01"]
+[gd_scene load_steps=8 format=3 uid="uid://b5hufqs7sbm01"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/boat.tscn" id="2_21usf"]
+[ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="4_f05kh"]
+[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
+size = Vector2(1152, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh6t"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ysfbh")
@@ -11,4 +18,77 @@ script = ExtResource("1_ysfbh")
 visible = true
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
-position = Vector2(619, 385)
+position = Vector2(184, 232)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(576, 4)
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(584, 640)
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(1152, 312)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = -8.0
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2(8, 360)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="."]
+position = Vector2(400, 500)
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("4_f05kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
+position = Vector2(176, -28)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_aoh6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
+position = Vector2(176, -28)
+texture = ExtResource("5_dl6rd")
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="."]
+position = Vector2(400, 500)
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("4_f05kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
+position = Vector2(176, -284)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_aoh6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D6"]
+position = Vector2(176, -284)
+texture = ExtResource("5_dl6rd")
+
+[connection signal="body_entered" from="RigidBody2D5" to="RigidBody2D5" method="_on_body_entered"]
+[connection signal="body_entered" from="RigidBody2D6" to="RigidBody2D6" method="_on_body_entered"]
