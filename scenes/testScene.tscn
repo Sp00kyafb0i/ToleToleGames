@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc27dim47vf33"]
+[gd_scene load_steps=8 format=3 uid="uid://cc27dim47vf33"]
 
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/boat.tscn" id="1_50tgu"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_v41k3"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="3_7triw"]
+[ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="4_e60pf"]
+[ext_resource type="PackedScene" uid="uid://dda8xx2nl7xtj" path="res://scenes/health_bar.tscn" id="5_pijvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh4pv"]
 
@@ -37,5 +39,15 @@ shape = SubResource("RectangleShape2D_iqrtk")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("2_v41k3")
+
+[node name="ScoreScene" parent="." instance=ExtResource("4_e60pf")]
+position = Vector2(3, 12)
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_pijvq")]
+offset_left = 465.0
+offset_top = 24.0
+offset_right = 674.0
+offset_bottom = 51.0
+player = NodePath("../BoatRigidBody")
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]

@@ -1,5 +1,9 @@
 extends RigidBody2D
 
+class_name boat
+
+signal healthChanged
+
 @onready var paddle_right = $Player2/PaddleRight
 @onready var paddle_left = $Player1/PaddleLeft
 
@@ -10,9 +14,11 @@ var stearingHeadingLeft;
 var stearingHeadingRight;
 var stearingTorque = 30000;
 var stearingForce = 100;
-var healthPoints = 10;
+var maxHp = 20
+var healthPoints = 20;
 var isVulnerable = true;
 var countDown = 60;
+
 
 
 
@@ -45,6 +51,7 @@ func apply_stearing(direction):
 	
 func takeDamage(damage):
 	healthPoints-=damage
+	healthChanged.emit()
 	isVulnerable = false
 	print("Ouch")
 
