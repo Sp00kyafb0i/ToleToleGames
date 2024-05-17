@@ -1,5 +1,5 @@
 extends Sprite2D
-@onready var boatToMove = $"../.."
+@onready var boatToMove = $"../../.."
 
 var padSpeed=0.1;
 var padRepositionSpeed=0.1;

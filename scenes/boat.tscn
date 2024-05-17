@@ -25,6 +25,7 @@ linear_damp = 0.001
 script = ExtResource("1_c50b5")
 
 [node name="BoatCollisionShape" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-2, 0, -29, -36, -97, -45, -90, 0, -97, 45, -29, 36)
 
 [node name="BoatImage" type="Sprite2D" parent="BoatCollisionShape"]
@@ -34,29 +35,29 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_8vdeo")
 centered = false
 
-[node name="Player1" type="CharacterBody2D" parent="."]
+[node name="Player1" type="CharacterBody2D" parent="BoatCollisionShape"]
 position = Vector2(-50, -30)
 rotation = -0.349066
 scale = Vector2(0.205, 0.205)
 slide_on_ceiling = false
 script = ExtResource("3_3x1q3")
 
-[node name="PaddleLeft" type="Sprite2D" parent="Player1"]
+[node name="PaddleLeft" type="Sprite2D" parent="BoatCollisionShape/Player1"]
 texture = ExtResource("3_h1n55")
 offset = Vector2(250, 0)
 script = ExtResource("5_6mgdm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatCollisionShape/Player1"]
 shape = SubResource("RectangleShape2D_ik2xm")
 disabled = true
 
-[node name="Player2" type="CharacterBody2D" parent="."]
+[node name="Player2" type="CharacterBody2D" parent="BoatCollisionShape"]
 position = Vector2(-57.5284, 20.7152)
 scale = Vector2(0.042025, 0.042025)
 slide_on_ceiling = false
 script = ExtResource("6_uvmff")
 
-[node name="PaddleRight" type="Sprite2D" parent="Player2"]
+[node name="PaddleRight" type="Sprite2D" parent="BoatCollisionShape/Player2"]
 position = Vector2(179.141, 220.936)
 rotation = 0.349066
 scale = Vector2(4.87805, 4.87805)
@@ -65,14 +66,14 @@ offset = Vector2(250, 0)
 flip_v = true
 script = ExtResource("7_gepqe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatCollisionShape/Player2"]
 shape = SubResource("RectangleShape2D_uniiv")
 disabled = true
 
-[node name="DesiredStearingLeft" type="Marker2D" parent="."]
+[node name="DesiredStearingLeft" type="Marker2D" parent="BoatCollisionShape"]
 position = Vector2(50, 30)
 rotation = 0.349066
 
-[node name="DesiredStearingRight" type="Marker2D" parent="."]
+[node name="DesiredStearingRight" type="Marker2D" parent="BoatCollisionShape"]
 position = Vector2(50, -30)
 rotation = 0.698132

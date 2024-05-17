@@ -4,12 +4,12 @@ class_name boat
 
 signal healthChanged
 
-@onready var paddle_right = $Player2/PaddleRight
-@onready var paddle_left = $Player1/PaddleLeft
+@onready var paddle_right = $BoatCollisionShape/Player2/PaddleRight
+@onready var paddle_left = $BoatCollisionShape/Player1/PaddleLeft
 
 
-@onready var desired_stearing_left = $DesiredStearingLeft
-@onready var desired_stearing_right = $DesiredStearingRight
+@onready var desired_stearing_left = $BoatCollisionShape/DesiredStearingLeft
+@onready var desired_stearing_right = $BoatCollisionShape/DesiredStearingRight
 var stearingHeadingLeft;
 var stearingHeadingRight;
 var stearingTorque = 30000;

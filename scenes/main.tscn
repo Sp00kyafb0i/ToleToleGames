@@ -16,9 +16,13 @@ script = ExtResource("1_ysfbh")
 
 [node name="Background" parent="." instance=ExtResource("2_4lfin")]
 visible = true
+scale = Vector2(5.409, 3)
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(184, 232)
+
+[node name="Camera2D" type="Camera2D" parent="Boat"]
+position = Vector2(-184, -232)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true
