@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
-[ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/boat.tscn" id="2_21usf"]
+[ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="2_21usf"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="4_f05kh"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
 
@@ -19,10 +19,9 @@ visible = true
 scale = Vector2(3.575, 2)
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
-position = Vector2(184, 232)
+position = Vector2(364, 376)
 
 [node name="Camera2D" type="Camera2D" parent="Boat"]
-position = Vector2(-184, -232)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qhxknfly3ci4"
-path="res://.godot/imported/Boat.png-b9fab03c2f133f580c772899d5a79091.ctex"
+uid="uid://co8pajgal1380"
+path="res://.godot/imported/boat.png-c4263b07bc8a6534547e2db6087582a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Boat.png"
-dest_files=["res://.godot/imported/Boat.png-b9fab03c2f133f580c772899d5a79091.ctex"]
+source_file="res://resources/boat.png"
+dest_files=["res://.godot/imported/boat.png-c4263b07bc8a6534547e2db6087582a8.ctex"]
 
 [params]
 

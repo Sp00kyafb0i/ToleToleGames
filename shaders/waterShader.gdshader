@@ -51,7 +51,7 @@ COLOR=  vec4(	 ( (lineMapTail)			* vec3(0.0,0.0,0.5)*(1.0-mask)
 				+ (lineMapHighlight)	* vec3(1.0,1.0,1.0)*(1.0-mask)
 				+ (lineMapFlashes * pow(waterMap,4.0)*3.0) * vec3(0.0,0.2,0.2)*(1.0-mask)
 				+ (lineSmallLines) * vec3(0.0,0.0,0.1)*(1.0-mask)
-				+ vec3(0.0,0.15,0.3) * waterMap ) * 0.6
+				+ vec3(0.0,0.15,0.3) * waterMap ) * 0.7
 				,1.0) + texture(prevImage,SCREEN_UV)*mask;
 //COLOR+=  vec4(vec3(0.0,1.0,0.0) * mask * 0.5,1.0);
 }
