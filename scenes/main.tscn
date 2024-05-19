@@ -16,7 +16,7 @@ script = ExtResource("1_ysfbh")
 
 [node name="Background" parent="." instance=ExtResource("2_4lfin")]
 visible = true
-scale = Vector2(5.409, 3)
+scale = Vector2(3.575, 2)
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(184, 232)

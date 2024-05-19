@@ -2,8 +2,6 @@ extends Node2D
 
 @onready var boat = $Boat
 
-
-
 func _ready(): 
 	boat = boat.get_child(0)
 	var paddle_left = boat.get_child(1)
