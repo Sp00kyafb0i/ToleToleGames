@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc27dim47vf33"]
+[gd_scene load_steps=9 format=3 uid="uid://cc27dim47vf33"]
 
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="1_50tgu"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_v41k3"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="3_7triw"]
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="4_e60pf"]
 [ext_resource type="PackedScene" uid="uid://dda8xx2nl7xtj" path="res://scenes/health_bar.tscn" id="5_pijvq"]
+[ext_resource type="PackedScene" uid="uid://bchwsegdtibt6" path="res://scenes/spawner.tscn" id="6_tqyns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh4pv"]
 
@@ -49,5 +50,8 @@ offset_top = 24.0
 offset_right = 674.0
 offset_bottom = 51.0
 player = NodePath("../BoatRigidBody")
+
+[node name="Spawner" parent="." instance=ExtResource("6_tqyns")]
+position = Vector2(1065, 317)
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]

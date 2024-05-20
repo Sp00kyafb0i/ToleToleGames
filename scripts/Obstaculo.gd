@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var damage = 5
+var speed = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,7 +9,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	self.position.x -= speed*delta
+	if self.position.x < -3000:
+		self.free()
 
 
 func _on_body_entered(body):

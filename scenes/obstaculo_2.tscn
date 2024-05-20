@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://6hvno481alwf"]
+
+[ext_resource type="PackedScene" uid="uid://cbuc70nimk76c" path="res://scenes/obstaculo_temporal.tscn" id="1_aha5x"]
+
+[node name="Obstaculo2" type="Node2D"]
+
+[node name="ObstaculoTemporal" parent="." instance=ExtResource("1_aha5x")]
+position = Vector2(300, 300)
+
+[node name="ObstaculoTemporal2" parent="." instance=ExtResource("1_aha5x")]
+position = Vector2(150, 0)
+
+[node name="ObstaculoTemporal3" parent="." instance=ExtResource("1_aha5x")]
+position = Vector2(0, -300)
