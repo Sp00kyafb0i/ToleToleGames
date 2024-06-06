@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5hufqs7sbm01"]
+[gd_scene load_steps=9 format=3 uid="uid://b5hufqs7sbm01"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="2_21usf"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="4_f05kh"]
+[ext_resource type="PackedScene" uid="uid://bchwsegdtibt6" path="res://scenes/spawner.tscn" id="4_vktww"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
@@ -22,6 +23,9 @@ scale = Vector2(3.575, 2)
 position = Vector2(364, 376)
 
 [node name="Camera2D" type="Camera2D" parent="Boat"]
+
+[node name="Spawner" parent="Boat/Camera2D" instance=ExtResource("4_vktww")]
+position = Vector2(788, -64)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true
@@ -92,6 +96,10 @@ shape = SubResource("RectangleShape2D_aoh6t")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D6"]
 position = Vector2(176, -284)
 texture = ExtResource("5_dl6rd")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/obstaculo_1.tscn", "res://scenes/obstaculo_2.tscn")
+spawn_path = NodePath("..")
 
 [connection signal="body_entered" from="RigidBody2D5" to="RigidBody2D5" method="_on_body_entered"]
 [connection signal="body_entered" from="RigidBody2D6" to="RigidBody2D6" method="_on_body_entered"]
