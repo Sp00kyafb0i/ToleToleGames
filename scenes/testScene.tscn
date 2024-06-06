@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc27dim47vf33"]
+[gd_scene load_steps=10 format=3 uid="uid://cc27dim47vf33"]
 
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="1_50tgu"]
+[ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="1_xqvw0"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_v41k3"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="3_7triw"]
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="4_e60pf"]
@@ -13,8 +14,19 @@
 
 [node name="TestScene" type="Node2D"]
 
-[node name="BoatRigidBody" parent="." instance=ExtResource("1_50tgu")]
+[node name="Background" parent="." instance=ExtResource("1_xqvw0")]
+visible = true
+position = Vector2(1105, -108)
+scale = Vector2(3.575, 2)
+
+[node name="Boat" parent="." instance=ExtResource("1_50tgu")]
 position = Vector2(216, 228)
+
+[node name="Camera2D" type="Camera2D" parent="Boat"]
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 2000
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(600, 400)
@@ -49,7 +61,7 @@ offset_left = 465.0
 offset_top = 24.0
 offset_right = 674.0
 offset_bottom = 51.0
-player = NodePath("../BoatRigidBody")
+player = NodePath("../Boat")
 
 [node name="Spawner" parent="." instance=ExtResource("6_tqyns")]
 position = Vector2(1065, 317)
