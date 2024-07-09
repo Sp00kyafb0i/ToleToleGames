@@ -1,10 +1,16 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=3 uid="uid://b5hufqs7sbm01"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://b5hufqs7sbm01"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="2_21usf"]
+[ext_resource type="PackedScene" uid="uid://dda8xx2nl7xtj" path="res://scenes/health_bar.tscn" id="4_eve1q"]
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="4_f05kh"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
+[ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="5_mn165"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
@@ -15,14 +21,29 @@ size = Vector2(1152, 8)
 script = ExtResource("1_ysfbh")
 
 [node name="Background" parent="." instance=ExtResource("2_4lfin")]
-visible = true
 scale = Vector2(3.575, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(364, 376)
+
+[node name="HealthBar" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("4_eve1q")]
+offset_left = -132.0
+offset_top = -307.0
+offset_right = 78.0
+offset_bottom = -280.0
+player = NodePath("../../Boat")
+
+[node name="ScoreScene" parent="Camera2D" instance=ExtResource("5_mn165")]
+position = Vector2(-273, -296)
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(364, 376)
 
+<<<<<<< Updated upstream
 [node name="Camera2D" type="Camera2D" parent="Boat"]
 
+=======
+>>>>>>> Stashed changes
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true
 freeze_mode = 1
