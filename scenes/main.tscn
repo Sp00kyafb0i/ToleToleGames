@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=16 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scenes/HowToPlay.gd" id="6_gemf8"]
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
+[ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
+[ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="11_hioog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
@@ -78,6 +80,21 @@ position = Vector2(8, 360)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_0c8s0")
 
+[node name="Rim" type="Node2D" parent="Borders/LeftWall"]
+position = Vector2(0, -200)
+rotation = 1.5708
+scale = Vector2(2, 0.3)
+
+[node name="RimTop" type="Sprite2D" parent="Borders/LeftWall/Rim"]
+z_index = 4
+position = Vector2(576, 4)
+texture = ExtResource("10_7yeyy")
+
+[node name="RimTopCollition" type="Sprite2D" parent="Borders/LeftWall/Rim"]
+z_index = -5
+position = Vector2(576, 4)
+texture = ExtResource("11_hioog")
+
 [node name="TopWall" type="RigidBody2D" parent="Borders"]
 freeze = true
 freeze_mode = 1
@@ -86,6 +103,20 @@ freeze_mode = 1
 position = Vector2(576, 4)
 shape = SubResource("RectangleShape2D_0c8s0")
 
+[node name="Rim" type="Node2D" parent="Borders/TopWall"]
+position = Vector2(-200, 0)
+scale = Vector2(2, 0.3)
+
+[node name="RimTop" type="Sprite2D" parent="Borders/TopWall/Rim"]
+z_index = 4
+position = Vector2(576, 4)
+texture = ExtResource("10_7yeyy")
+
+[node name="RimTopCollition" type="Sprite2D" parent="Borders/TopWall/Rim"]
+z_index = -5
+position = Vector2(576, 4)
+texture = ExtResource("11_hioog")
+
 [node name="BottomWall" type="RigidBody2D" parent="Borders"]
 freeze = true
 freeze_mode = 1
@@ -93,6 +124,20 @@ freeze_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BottomWall"]
 position = Vector2(584, 640)
 shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="Rim" type="Node2D" parent="Borders/BottomWall"]
+position = Vector2(-200, 645)
+scale = Vector2(2, 0.3)
+
+[node name="RimTop" type="Sprite2D" parent="Borders/BottomWall/Rim"]
+z_index = 4
+position = Vector2(576, 4)
+texture = ExtResource("10_7yeyy")
+
+[node name="RimTopCollition" type="Sprite2D" parent="Borders/BottomWall/Rim"]
+z_index = -5
+position = Vector2(576, 4)
+texture = ExtResource("11_hioog")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="."]
 position = Vector2(400, 500)
