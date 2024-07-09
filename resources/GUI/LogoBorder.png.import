@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://osvxo1kdiv54"
-path="res://.godot/imported/The-Rock.png-166540391c463ceb62259fb29788ba81.ctex"
+uid="uid://drrd15f6q4tyn"
+path="res://.godot/imported/LogoBorder.png-50e33a54f487c2306e28ae2b28a38a76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/The-Rock.png"
-dest_files=["res://.godot/imported/The-Rock.png-166540391c463ceb62259fb29788ba81.ctex"]
+source_file="res://resources/GUI/LogoBorder.png"
+dest_files=["res://.godot/imported/LogoBorder.png-50e33a54f487c2306e28ae2b28a38a76.ctex"]
 
 [params]
 

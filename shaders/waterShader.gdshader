@@ -5,6 +5,7 @@ uniform vec2 cameraPosition;
 uniform vec2 screenSize;
 uniform vec2 waterSpeed;
 uniform float damage;
+uniform float escalaGlobal;
 
 float centeredSnap(float x,float n){
 	return round(x/n)*n;
@@ -12,8 +13,8 @@ float centeredSnap(float x,float n){
 float lineClosenessTexture(vec2 position,float newGridSize,float p){
 	float n = newGridSize;
 	float m = newGridSize;
-	float distLineX = 2.0*abs(position.x-centeredSnap(position.x,n))/n;
-	float distLineY = 2.0*abs(position.y-centeredSnap(position.y,m))/m;
+	float distLineX = 2.0*abs(position.x/ escalaGlobal-centeredSnap(position.x/ escalaGlobal,n))/n ;
+	float distLineY = 2.0*abs(position.y/ escalaGlobal-centeredSnap(position.y/ escalaGlobal,m))/m ;
 	return pow(distLineX,p)+ pow(distLineY,p);
 }
 

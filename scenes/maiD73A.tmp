@@ -20,11 +20,9 @@ size = Vector2(1152, 8)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ysfbh")
 
-[node name="Background" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("2_4lfin")]
+[node name="Background" parent="." instance=ExtResource("2_4lfin")]
 visible = true
 scale = Vector2(3.575, 2)
-boat = NodePath("../Boat")
-escalaGlobal = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
