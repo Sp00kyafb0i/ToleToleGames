@@ -20,8 +20,10 @@ lobby_player_scene = ExtResource("2_060bj")
 [node name="Background" parent="." instance=ExtResource("3_gw1lr")]
 visible = true
 z_index = -3
-position = Vector2(793, 357)
-scale = Vector2(3.575, 2)
+position = Vector2(636.064, 117.24)
+rotation = -0.502655
+scale = Vector2(4.01481, 3.6949)
+skew = 0.125664
 escalaGlobal = 2.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

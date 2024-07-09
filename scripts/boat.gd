@@ -45,10 +45,10 @@ func apply_stearing(direction):
 	var tween: Tween = create_tween() 
 	if direction == 1:
 		apply_force(stearingHeadingLeft * stearingForce)
-		tween.tween_property(a, "modulate:a", 0, 0.25)
+		tween.tween_property(d, "modulate:a", 0, 0.25)
 	else:
 		apply_force(stearingHeadingRight * stearingForce)
-		tween.tween_property(d, "modulate:a", 0, 0.25)
+		tween.tween_property(a, "modulate:a", 0, 0.25)
 	
 func takeDamage(damage):
 	healthPoints-=damage
