@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvw2iife5e7xa"]
+[gd_scene load_steps=14 format=3 uid="uid://dvw2iife5e7xa"]
 
 [ext_resource type="Script" path="res://scripts/boat.gd" id="1_c50b5"]
 [ext_resource type="Texture2D" uid="uid://co8pajgal1380" path="res://resources/Boat.png" id="2_8vdeo"]
 [ext_resource type="Script" path="res://scenes/Player1.gd" id="3_3x1q3"]
+[ext_resource type="Texture2D" uid="uid://pss8c0bt6ix7" path="res://resources/playerRim2.png" id="3_d82te"]
 [ext_resource type="Texture2D" uid="uid://55ckvgtd3eiq" path="res://resources/paddle.png" id="3_h1n55"]
 [ext_resource type="Script" path="res://scripts/PaddleLeft.gd" id="5_6mgdm"]
+[ext_resource type="Texture2D" uid="uid://cvhhbbr38aby8" path="res://resources/paddle1_2.png" id="6_tddot"]
 [ext_resource type="Script" path="res://scenes/Player2.gd" id="6_uvmff"]
 [ext_resource type="Script" path="res://scripts/PaddleRight.gd" id="7_gepqe"]
+[ext_resource type="Texture2D" uid="uid://d0q355qf32f5b" path="res://resources/paddle2_2.png" id="9_5q2vk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1d24x"]
 friction = 0.0
@@ -48,6 +51,12 @@ texture = ExtResource("3_h1n55")
 offset = Vector2(180, 0)
 script = ExtResource("5_6mgdm")
 
+[node name="PaddleLeft2" type="Sprite2D" parent="BoatCollisionShape/Player1/PaddleLeft"]
+z_index = 5
+texture = ExtResource("6_tddot")
+offset = Vector2(180, 0)
+script = ExtResource("5_6mgdm")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoatCollisionShape/Player1"]
 shape = SubResource("RectangleShape2D_ik2xm")
 disabled = true
@@ -65,6 +74,13 @@ offset = Vector2(180, 0)
 flip_v = true
 script = ExtResource("7_gepqe")
 
+[node name="PaddleRight2" type="Sprite2D" parent="BoatCollisionShape/Player2/PaddleRight"]
+z_index = 5
+texture = ExtResource("9_5q2vk")
+offset = Vector2(180, 0)
+flip_v = true
+script = ExtResource("7_gepqe")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoatCollisionShape/Player2"]
 shape = SubResource("RectangleShape2D_uniiv")
 disabled = true
@@ -76,3 +92,11 @@ rotation = 0.349066
 [node name="DesiredStearingRight" type="Marker2D" parent="BoatCollisionShape"]
 position = Vector2(50, -30)
 rotation = 0.698132
+
+[node name="BoatImage2" type="Sprite2D" parent="BoatCollisionShape"]
+z_index = 5
+position = Vector2(50, -98)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_d82te")
+centered = false
