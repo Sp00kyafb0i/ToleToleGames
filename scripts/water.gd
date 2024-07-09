@@ -13,11 +13,8 @@ func _ready():
 func _process(delta):
 	var screenSize =  get_viewport().get_visible_rect().size
 	var screenCenter = screenSize/2
-<<<<<<< Updated upstream
-=======
 	
 	camera_2d.global_position.x = boat.global_position.x
->>>>>>> Stashed changes
 
 	self.position.x = clamp(camera_2d.global_position.x,camera_2d.limit_left,camera_2d.limit_right-screenSize.x);
 	self.position.y = clamp(camera_2d.global_position.y,camera_2d.limit_top,camera_2d.limit_bottom-screenSize.y);
