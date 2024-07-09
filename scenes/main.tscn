@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=14 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="5_mn165"]
 [ext_resource type="Script" path="res://scenes/HowToPlay.gd" id="6_gemf8"]
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
+[ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
@@ -24,7 +25,8 @@ visible = true
 scale = Vector2(3.575, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(364, 376)
+position = Vector2(576, 324)
+limit_left = 0
 
 [node name="HealthBar" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("4_eve1q")]
 offset_left = -132.0
@@ -37,7 +39,7 @@ player = NodePath("../../Boat")
 position = Vector2(-273, -296)
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
-position = Vector2(364, 376)
+position = Vector2(364.661, 376)
 
 [node name="Camera2D" type="Camera2D" parent="Boat"]
 
@@ -59,40 +61,35 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_pl0os")
 offset = Vector2(0, -40)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-freeze = true
-freeze_mode = 1
+[node name="Borders" type="Node2D" parent="." node_paths=PackedStringArray("playerTrapped")]
+script = ExtResource("9_wi85x")
+playerTrapped = NodePath("../Boat")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(576, 4)
-shape = SubResource("RectangleShape2D_0c8s0")
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-position = Vector2(584, 640)
-shape = SubResource("RectangleShape2D_0c8s0")
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
-position = Vector2(1152, 312)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_0c8s0")
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+[node name="LeftWall" type="RigidBody2D" parent="Borders"]
 mass = 0.01
 gravity_scale = -8.0
 freeze = true
 freeze_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftWall"]
 position = Vector2(8, 360)
 rotation = -1.5708
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="TopWall" type="RigidBody2D" parent="Borders"]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopWall"]
+position = Vector2(576, 4)
+shape = SubResource("RectangleShape2D_0c8s0")
+
+[node name="BottomWall" type="RigidBody2D" parent="Borders"]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BottomWall"]
+position = Vector2(584, 640)
 shape = SubResource("RectangleShape2D_0c8s0")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="."]

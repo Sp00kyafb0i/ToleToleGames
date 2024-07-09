@@ -1,13 +1,12 @@
 extends Node
 @onready var camera_2d = $"../Camera2D"
-
 @onready var boat = $"../Boat"
-
+var value:float = 0.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	boat.healthChanged.connect(update)
+	update()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,4 +22,8 @@ func _process(delta):
 	self.material.set_shader_parameter("cameraPosition",self.position)
 	self.material.set_shader_parameter("screenSize",self.scale*self.texture.get_size())
 	self.material.set_shader_parameter("waterSpeed",Vector2(0.072,0.03))
+	self.material.set_shader_parameter("damage",value)
 
+
+func update():
+	value = 1.0 - float(boat.healthPoints)/boat.maxHp

@@ -4,6 +4,7 @@ uniform sampler2D prevImage : hint_screen_texture, repeat_disable;
 uniform vec2 cameraPosition;
 uniform vec2 screenSize;
 uniform vec2 waterSpeed;
+uniform float damage;
 
 float centeredSnap(float x,float n){
 	return round(x/n)*n;
@@ -17,9 +18,9 @@ float lineClosenessTexture(vec2 position,float newGridSize,float p){
 }
 
 float seudoRandom(float a, float b){
-	float normalizedNoise =(sin(TIME*10.0+0.6)
-						   +sin(TIME*11.0+0.7)
-						   +sin(TIME*12.0+0.8))/3.0;
+	float normalizedNoise =(sin(TIME*10.0/2.0+0.6)
+						   +sin(TIME*11.0/2.0+0.7)
+						   +sin(TIME*12.0/2.0+0.8))/3.0;
 	return normalizedNoise*(b-a) +a;
 }
 vec4 getMovingWaterTexture(vec2 location, float scale,sampler2D tex){
@@ -55,15 +56,15 @@ void fragment() {
 	float lineMapFlashes = lineClosenessTexture(sampleLinePosition,gridSize,10.0)*10.0;
 	float lineSmallLines = lineClosenessTexture(sampleLinePosition+waterTex.xy*60.0,gridSize/3.0,5.0);
 	
-float l = seudoRandom(0.0,1.0);
-COLOR=  vec4(	 ( (lineMapTail)			*(1.0-mask)   * (vec3(0.2,0.16,0.5)*l+vec3(0.0,0.16,0.5)*(1.0-l))
+float l = seudoRandom(damage,1.0-damage)*damage*1.5;
+COLOR=  vec4(	 ( (lineMapTail)			*(1.0-mask)   * (vec3(0.9,0.16,0.5)*l+vec3(0.0,0.16,0.5)*(1.0-l))
 				+ (lineMapHighlight)	* vec3(1.0,1.0,1.0)*(1.0-mask)
 				+ (lineMapFlashes * pow(waterMask,4.0)*1.0) * vec3(0.41,0.89,0.84)*(1.0-mask)
 				+ (lineSmallLines) * vec3(0.0,0.0,0.1)*(1.0-mask)
 				+ vec3(0.0,0.15,0.3) * waterMask ) *  (-difuseBlackholeMask*0.7+0.7)
 				,1.0) + texture(prevImage,SCREEN_UV)*mask;
 				+pow( max(1.0-difuseMask,0.0)*0.3 , 2.0) *   vec4(0.41,0.89,0.84,0.0);
-	//COLOR -=  vec4(vec3(0.5,0.5,0.5) * blackholeMask,1.0);
+	//COLOR =  vec4(vec3(1.0,0.0,0.0) * damage,1.0);
 }
 
 
