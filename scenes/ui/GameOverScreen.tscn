@@ -1,0 +1,185 @@
+[gd_scene load_steps=11 format=3 uid="uid://8l35or5khla0"]
+
+[ext_resource type="Script" path="res://scenes/ui/GOver.gd" id="1_jpebq"]
+[ext_resource type="LabelSettings" uid="uid://vtkldu0sv7l5" path="res://resources/Fonts/new_label_settings.tres" id="1_pi5yt"]
+[ext_resource type="FontFile" uid="uid://bk3hgviputykd" path="res://resources/Fonts/neon_zone/Neon Zone.otf" id="2_brq6k"]
+[ext_resource type="Script" path="res://scripts/Score.gd" id="3_3kbqp"]
+[ext_resource type="FontFile" uid="uid://clyxmtlon1uld" path="res://resources/Fonts/neon_zone/Neon Zone.ttf" id="3_r14lk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bfku"]
+font = ExtResource("2_brq6k")
+font_size = 35
+font_color = Color(0, 0.85098, 0.823529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8erue"]
+font = ExtResource("2_brq6k")
+font_size = 35
+font_color = Color(0, 0.85098, 0.823529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_agl61"]
+line_spacing = 1.0
+font = ExtResource("2_brq6k")
+font_size = 77
+font_color = Color(0.988235, 0, 0.631373, 1)
+outline_size = 7
+outline_color = Color(1, 0.336152, 0.631332, 1)
+shadow_size = 26
+shadow_color = Color(1, 0.129412, 0.94902, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptojh"]
+line_spacing = 1.0
+font = ExtResource("2_brq6k")
+font_size = 77
+font_color = Color(0.988235, 0, 0.631373, 1)
+outline_size = 7
+outline_color = Color(1, 0.336152, 0.631332, 1)
+shadow_size = 26
+shadow_color = Color(1, 0.129412, 0.94902, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1pk2"]
+font = ExtResource("2_brq6k")
+font_size = 20
+font_color = Color(0.953481, 0.00042047, 0.886921, 1)
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -752.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jpebq")
+
+[node name="GameOverScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 550.0
+color = Color(0, 0, 0, 0.396078)
+
+[node name="Score" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 304.0
+offset_right = 360.0
+offset_bottom = 347.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_1bfku")
+script = ExtResource("3_3kbqp")
+
+[node name="ScoreLabel" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 304.0
+offset_right = 176.0
+offset_bottom = 347.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_8erue")
+
+[node name="Game Over" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 55.0
+offset_right = 315.0
+offset_bottom = 224.0
+text = "GAME
+OVER"
+label_settings = SubResource("LabelSettings_agl61")
+
+[node name="Lobby" type="Button" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 447.0
+offset_right = 167.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(0, 0.85098, 0.823529, 1)
+theme_override_colors/font_hover_color = Color(0.433006, 1, 0.971363, 1)
+theme_override_fonts/font = ExtResource("2_brq6k")
+theme_override_font_sizes/font_size = 22
+keep_pressed_outside = true
+text = "Lobby"
+
+[node name="Credits" type="Button" parent="GameOverScreen"]
+process_mode = 3
+layout_mode = 0
+offset_left = 216.0
+offset_top = 448.0
+offset_right = 320.0
+offset_bottom = 481.0
+theme_override_colors/font_color = Color(0, 0.85098, 0.823529, 1)
+theme_override_colors/font_hover_color = Color(0.431373, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_r14lk")
+theme_override_font_sizes/font_size = 22
+text = "Credits"
+
+[node name="CreditsScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 550.0
+color = Color(0, 0, 0, 0.396078)
+
+[node name="Credits" type="Label" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 55.0
+offset_right = 365.0
+offset_bottom = 224.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_ptojh")
+
+[node name="L" type="Label" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 183.0
+offset_right = 221.0
+offset_bottom = 280.0
+text = "TOLETOLE GAMES:"
+label_settings = SubResource("LabelSettings_l1pk2")
+
+[node name="R" type="Label" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 181.0
+offset_right = 365.0
+offset_bottom = 278.0
+text = "CHEN
+CHEN
+CHEN
+CHEN"
+label_settings = ExtResource("1_pi5yt")
+horizontal_alignment = 2
+
+[node name="Lobby" type="Button" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 448.0
+offset_right = 303.0
+offset_bottom = 481.0
+theme_override_colors/font_color = Color(0, 0.85098, 0.823529, 1)
+theme_override_colors/font_hover_color = Color(0.433006, 1, 0.971363, 1)
+theme_override_fonts/font = ExtResource("2_brq6k")
+theme_override_font_sizes/font_size = 22
+keep_pressed_outside = true
+text = "Lobby"
+
+[node name="Back" type="Button" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 448.0
+offset_right = 180.0
+offset_bottom = 481.0
+theme_override_colors/font_color = Color(0, 0.85098, 0.823529, 1)
+theme_override_colors/font_hover_color = Color(0.431373, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_r14lk")
+theme_override_font_sizes/font_size = 22
+text = "BACK"
+
+[connection signal="pressed" from="GameOverScreen/Lobby" to="." method="_on_lobby_pressed"]
+[connection signal="pressed" from="GameOverScreen/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CreditsScreen/Lobby" to="." method="_on_lobby_pressed"]
+[connection signal="pressed" from="CreditsScreen/Back" to="." method="_on_back_pressed"]

@@ -8,6 +8,7 @@ signal healthChanged
 @onready var paddle_left = $BoatCollisionShape/Player1/PaddleLeft
 @onready var a = $HowToPlay/A
 @onready var d = $HowToPlay/D
+@onready var panel = $"../Camera2D/GameOver"
 
 @onready var desired_stearing_left = $BoatCollisionShape/DesiredStearingLeft
 @onready var desired_stearing_right = $BoatCollisionShape/DesiredStearingRight
@@ -22,7 +23,7 @@ var countDown = 60;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	panel.visible = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -38,6 +39,9 @@ func _physics_process(delta):
 	paddle_right.getInput()
 
 	if healthPoints <= 0:
+		get_tree().paused = true
+		self.visible = false
+		panel.visible = true
 		print("Dead")
 
 func apply_stearing(direction):

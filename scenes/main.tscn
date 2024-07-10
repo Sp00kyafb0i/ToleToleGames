@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=18 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="5_mn165"]
 [ext_resource type="Script" path="res://scripts/Global.gd" id="5_o22fd"]
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
+[ext_resource type="PackedScene" uid="uid://8l35or5khla0" path="res://scenes/ui/GameOverScreen.tscn" id="6_tn0ar"]
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
 [ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="11_hioog"]
@@ -56,6 +57,13 @@ player = NodePath("../../Boat")
 [node name="ScoreScene" parent="Camera2D" instance=ExtResource("5_mn165")]
 position = Vector2(-273, -296)
 script = ExtResource("5_o22fd")
+
+[node name="GameOver" parent="Camera2D" instance=ExtResource("6_tn0ar")]
+z_index = 1
+offset_left = -230.0
+offset_top = -260.0
+offset_right = -230.0
+offset_bottom = -260.0
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(364.661, 376)

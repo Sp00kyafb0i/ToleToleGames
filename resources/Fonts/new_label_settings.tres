@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://vtkldu0sv7l5"]
+
+[ext_resource type="FontFile" uid="uid://bk3hgviputykd" path="res://resources/Fonts/neon_zone/Neon Zone.otf" id="1_377ld"]
+
+[resource]
+font = ExtResource("1_377ld")
+font_size = 20
+font_color = Color(5.77569e-07, 0.849986, 0.82325, 1)
+outline_color = Color(2.69532e-06, 0.518692, 0.663755, 0.227451)
+shadow_size = 10
+shadow_color = Color(0.458824, 0.894118, 1, 0.25098)
+shadow_offset = Vector2(1.5, 1.5)
