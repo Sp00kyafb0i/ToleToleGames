@@ -48,7 +48,7 @@ script = ExtResource("1_ysfbh")
 [node name="Spawner" parent="." node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_3ssxd")]
 position = Vector2(1168, 384)
 player = NodePath("../Boat")
-camera = NodePath("")
+camera = NodePath("../Camera2D")
 
 [node name="Background" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("2_4lfin")]
 visible = true
