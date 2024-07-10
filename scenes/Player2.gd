@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 var pos_1
 var rot_1
+var paddle_rot1
+var paddle_rot2
 var role
 
 
@@ -20,18 +22,18 @@ func _physics_process(_delta):
 	if get_multiplayer_authority() == 1:
 		pos_1 = boat_rigid_body.position
 		rot_1 = boat_rigid_body.rotation
-		send_pos.rpc(pos_1,rot_1)
+		paddle_rot1 = paddle_left.rotation
+		paddle_rot2 = paddle_right.rotation
+		send_pos.rpc(pos_1,rot_1,paddle_rot1,paddle_rot2)
 	
 func _input(event: InputEvent) -> void:
 	if is_multiplayer_authority():
 		if get_multiplayer_authority() != 1:
-			Debug.log("cliente derecha")
 			if event.is_action_pressed("GoRight"):	
 				send_data.rpc(1)
 			if event.is_action_released("GoRight"):
 				send_data.rpc(0)
 		else:
-			Debug.log("server derecha")
 			if event.is_action_pressed("GoRight"):
 				paddle_right.set_current_state(1)
 			if event.is_action_released("GoRight"):
@@ -45,10 +47,13 @@ func test2(name):
 func send_data(state: int):
 	paddle_right.set_current_state(state)
 
+
+
 @rpc
-func send_pos(pos,rot):
+func send_pos(pos,rot,paddle_rot1,paddle_rot2):
 	boat_rigid_body.position = pos
 	boat_rigid_body.rotation = rot
-
+	paddle_left.rotation = paddle_rot1
+	paddle_right.rotation = paddle_rot2
 
 
