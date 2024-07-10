@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbuc70nimk76c"]
+[gd_scene load_steps=6 format=3 uid="uid://cbuc70nimk76c"]
 
 [ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="1_h1t54"]
 [ext_resource type="Texture2D" uid="uid://bi2pqw06a5qvp" path="res://resources/BlackHoleMask.png" id="2_0qtst"]
+[ext_resource type="Texture2D" uid="uid://meqr7rawehtr" path="res://resources/BlackholeRim2.png" id="3_5606g"]
+[ext_resource type="Script" path="res://scenes/Sprite2D2.gd" id="4_iahud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btnip"]
 
@@ -16,6 +18,12 @@ script = ExtResource("1_h1t54")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_0qtst")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 5
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_5606g")
+script = ExtResource("4_iahud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
