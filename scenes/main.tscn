@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=17 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cliq0371nd62e" path="res://resources/GUI/Press A key 4.png" id="5_6edhw"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="5_mn165"]
+[ext_resource type="Script" path="res://scripts/Global.gd" id="5_o22fd"]
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
@@ -17,6 +18,20 @@
 size = Vector2(1152, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh6t"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wjfyv"]
+properties/0/path = NodePath("Boat:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Boat:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Boat:healthPoints")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Camera2D/HealthBar:value")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ysfbh")
@@ -40,6 +55,7 @@ player = NodePath("../../Boat")
 
 [node name="ScoreScene" parent="Camera2D" instance=ExtResource("5_mn165")]
 position = Vector2(-273, -296)
+script = ExtResource("5_o22fd")
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(364.661, 376)
@@ -170,6 +186,9 @@ shape = SubResource("RectangleShape2D_aoh6t")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D6"]
 position = Vector2(176, -284)
 texture = ExtResource("5_dl6rd")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wjfyv")
 
 [connection signal="body_entered" from="RigidBody2D5" to="RigidBody2D5" method="_on_body_entered"]
 [connection signal="body_entered" from="RigidBody2D6" to="RigidBody2D6" method="_on_body_entered"]
