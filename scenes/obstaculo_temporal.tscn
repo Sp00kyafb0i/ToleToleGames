@@ -5,21 +5,22 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btnip"]
 
-[node name="ObstaculoTemporal" type="Node2D"]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D"]
+lock_rotation = true
 freeze = true
 freeze_mode = 1
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_h1t54")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_0qtst")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_btnip")
 
-[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[node name="ObstaculoTemporal" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

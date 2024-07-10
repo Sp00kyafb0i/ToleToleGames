@@ -20,6 +20,7 @@ var maxHp = 20
 var healthPoints = 20;
 var isVulnerable = true;
 var countDown = 60;
+var death = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,11 +39,16 @@ func _physics_process(delta):
 	paddle_left.getInput()
 	paddle_right.getInput()
 
-	if healthPoints <= 0:
+	if death and healthPoints <= 0:
 		get_tree().paused = true
 		self.visible = false
 		panel.visible = true
+
+	if healthPoints <= 0:
+		death = true
 		print("Dead")
+	
+
 
 func apply_stearing(direction):
 	apply_torque(stearingTorque * direction)
