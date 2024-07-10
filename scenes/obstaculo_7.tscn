@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://6l7nmvtffeil"]
+
+[ext_resource type="PackedScene" uid="uid://cbuc70nimk76c" path="res://scenes/obstaculo_temporal.tscn" id="1_11ea1"]
+[ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="2_afs20"]
+[ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="3_7g61i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujj8d"]
+size = Vector2(1994.18, 13.9949)
+
+[node name="Obstaculo5" type="Node2D"]
+
+[node name="ObstaculoTemporal4" parent="." instance=ExtResource("1_11ea1")]
+position = Vector2(469, -170)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wall" type="RigidBody2D" parent="."]
+position = Vector2(3, 139)
+rotation = -2.23359
+scale = Vector2(1, 0.155)
+mass = 0.01
+gravity_scale = -8.0
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(10.999, 781.091)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ujj8d")
+
+[node name="Rim" type="Node2D" parent="Wall"]
+position = Vector2(13, -370.909)
+rotation = 1.5708
+scale = Vector2(2, 0.3)
+
+[node name="Rim" type="Sprite2D" parent="Wall/Rim"]
+z_index = 4
+position = Vector2(576, 4)
+texture = ExtResource("2_afs20")
+
+[node name="RimCollition" type="Sprite2D" parent="Wall/Rim"]
+z_index = -5
+position = Vector2(576, 4)
+texture = ExtResource("3_7g61i")
+
+[node name="Wall2" type="RigidBody2D" parent="."]
+position = Vector2(464, -240)
+rotation = -1.02942
+scale = Vector2(1, 0.155)
+mass = 0.01
+gravity_scale = -8.0
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(10.999, 781.091)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ujj8d")
+
+[node name="Rim" type="Node2D" parent="Wall2"]
+position = Vector2(13, -370.909)
+rotation = 1.5708
+scale = Vector2(2, 0.3)
+
+[node name="Rim" type="Sprite2D" parent="Wall2/Rim"]
+z_index = 4
+position = Vector2(576, 4)
+texture = ExtResource("2_afs20")
+
+[node name="RimCollition" type="Sprite2D" parent="Wall2/Rim"]
+z_index = -5
+position = Vector2(576, 4)
+texture = ExtResource("3_7g61i")
+
+[node name="ObstaculoTemporal5" parent="." instance=ExtResource("1_11ea1")]
+position = Vector2(945, 16)
+scale = Vector2(0.5, 0.5)
