@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=20 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
 [ext_resource type="PackedScene" uid="uid://8l35or5khla0" path="res://scenes/ui/GameOverScreen.tscn" id="6_tn0ar"]
 [ext_resource type="PackedScene" uid="uid://bchwsegdtibt6" path="res://scenes/spawner.tscn" id="7_3ssxd"]
+[ext_resource type="Script" path="res://scenes/Camera.gd" id="9_4t78a"]
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
 [ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="11_hioog"]
@@ -47,7 +48,7 @@ script = ExtResource("1_ysfbh")
 [node name="Spawner" parent="." node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_3ssxd")]
 position = Vector2(1168, 384)
 player = NodePath("../Boat")
-camera = NodePath("../Boat/Camera2D2")
+camera = NodePath("")
 
 [node name="Background" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("2_4lfin")]
 visible = true
@@ -55,9 +56,11 @@ scale = Vector2(3.575, 2)
 boat = NodePath("../Boat")
 escalaGlobal = 1.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("boatBeingFollowed")]
 position = Vector2(576, 324)
 limit_left = 0
+script = ExtResource("9_4t78a")
+boatBeingFollowed = NodePath("../Boat")
 
 [node name="GameOver" parent="Camera2D" instance=ExtResource("6_tn0ar")]
 z_index = 1
@@ -79,8 +82,6 @@ script = ExtResource("5_o22fd")
 
 [node name="Boat" parent="." instance=ExtResource("2_21usf")]
 position = Vector2(364.661, 376)
-
-[node name="Camera2D2" type="Camera2D" parent="Boat"]
 
 [node name="HowToPlay" type="Node2D" parent="Boat"]
 z_index = 3

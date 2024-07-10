@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position.x = camera.position.x + 1200
+	pass
 
 
 func _on_SpawnTimer_timeout():
@@ -22,6 +22,7 @@ func _on_SpawnTimer_timeout():
 		counter = 1
 	else:
 		var scene = obstacles[spawn].instantiate()
-		scene.position = spawnerNode.position
-		add_child(scene)
+		scene.position = self.global_position
+		Debug.log(self.global_position)
+		spawnerNode.add_child(scene)
 		counter = 0
