@@ -29,6 +29,5 @@ func _on_SpawnTimer_timeout():
 	else:
 		var scene = obstacles[spawn].instantiate()
 		scene.position = self.global_position
-		Debug.log(self.global_position)
 		spawnerNode.add_child(scene)
 		counter = 0

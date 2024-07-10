@@ -10,4 +10,3 @@ func _ready():
 func _process(delta):
 	if(is_instance_valid(boatBeingFollowed)):
 		position.x = max(590,boatBeingFollowed.global_position.x)
-		Debug.log("tttttt")

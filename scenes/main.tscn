@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=17 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
 [ext_resource type="PackedScene" uid="uid://dvw2iife5e7xa" path="res://scenes/ui/boat.tscn" id="2_21usf"]
 [ext_resource type="PackedScene" uid="uid://dda8xx2nl7xtj" path="res://scenes/health_bar.tscn" id="4_eve1q"]
-[ext_resource type="Script" path="res://scripts/Obstaculo.gd" id="4_f05kh"]
 [ext_resource type="Texture2D" uid="uid://cliq0371nd62e" path="res://resources/GUI/Press A key 4.png" id="5_6edhw"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="5_dl6rd"]
 [ext_resource type="PackedScene" uid="uid://mgbpw2eh2jvf" path="res://scenes/score_scene.tscn" id="5_mn165"]
 [ext_resource type="Script" path="res://scripts/Global.gd" id="5_o22fd"]
 [ext_resource type="Texture2D" uid="uid://dtjxfe5kde4xl" path="res://resources/GUI/Press D key 4.png" id="6_pl0os"]
@@ -19,8 +17,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh6t"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wjfyv"]
 properties/0/path = NodePath("Boat:position")
@@ -176,42 +172,5 @@ z_index = -5
 position = Vector2(576, 4)
 texture = ExtResource("11_hioog")
 
-[node name="RigidBody2D5" type="RigidBody2D" parent="."]
-position = Vector2(400, 500)
-freeze = true
-freeze_mode = 1
-max_contacts_reported = 1
-contact_monitor = true
-script = ExtResource("4_f05kh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
-position = Vector2(176, -28)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_aoh6t")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
-position = Vector2(176, -28)
-texture = ExtResource("5_dl6rd")
-
-[node name="RigidBody2D6" type="RigidBody2D" parent="."]
-position = Vector2(400, 500)
-freeze = true
-freeze_mode = 1
-max_contacts_reported = 1
-contact_monitor = true
-script = ExtResource("4_f05kh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
-position = Vector2(176, -284)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_aoh6t")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D6"]
-position = Vector2(176, -284)
-texture = ExtResource("5_dl6rd")
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_wjfyv")
-
-[connection signal="body_entered" from="RigidBody2D5" to="RigidBody2D5" method="_on_body_entered"]
-[connection signal="body_entered" from="RigidBody2D6" to="RigidBody2D6" method="_on_body_entered"]
