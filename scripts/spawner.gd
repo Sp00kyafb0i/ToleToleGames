@@ -2,12 +2,9 @@ extends Node2D
 
 @export var player: boat
 @export var camera: Node2D
-@onready var obstacles = [preload("res://scenes/obstaculo_1.tscn"), 
-							preload("res://scenes/obstaculo_2.tscn"), 
+@onready var obstacles = [preload("res://scenes/obstaculo_1.tscn"),  
 							preload("res://scenes/obstaculo_3.tscn"), 
-							preload("res://scenes/obstaculo_4.tscn"), 
-							preload("res://scenes/obstaculo_5.tscn"), 
-							preload("res://scenes/obstaculo_6.tscn"), 
+							preload("res://scenes/obstaculo_5.tscn"),  
 							preload("res://scenes/obstaculo_7.tscn")]
 @onready var spawnerNode = get_parent()
 @onready var counter = 0
