@@ -6,8 +6,6 @@ signal healthChanged
 
 @onready var paddle_right = $BoatCollisionShape/Player2/PaddleRight
 @onready var paddle_left = $BoatCollisionShape/Player1/PaddleLeft
-@onready var a = $HowToPlay/A
-@onready var d = $HowToPlay/D
 @onready var panel = $"../Camera2D/GameOver"
 
 @onready var desired_stearing_left = $BoatCollisionShape/DesiredStearingLeft
@@ -52,13 +50,10 @@ func _physics_process(delta):
 
 func apply_stearing(direction):
 	apply_torque(stearingTorque * direction)
-	var tween: Tween = create_tween() 
 	if direction == 1:
 		apply_force(stearingHeadingLeft * stearingForce)
-		tween.tween_property(d, "modulate:a", 0, 0.25)
 	else:
 		apply_force(stearingHeadingRight * stearingForce)
-		tween.tween_property(a, "modulate:a", 0, 0.25)
 	
 func takeDamage(damage):
 	healthPoints-=damage
