@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://6l7nmvtffeil"]
+[gd_scene load_steps=5 format=3 uid="uid://de3k03ehbeogd"]
 
 [ext_resource type="PackedScene" uid="uid://cbuc70nimk76c" path="res://scenes/obstaculo_temporal.tscn" id="1_11ea1"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="2_afs20"]

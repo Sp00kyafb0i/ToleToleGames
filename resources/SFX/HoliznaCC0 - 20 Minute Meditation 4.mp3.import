@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pf7rn5li36iq"
+path="res://.godot/imported/HoliznaCC0 - 20 Minute Meditation 4.mp3-86ea18d44b37b0a5906e383d76046aff.mp3str"
+
+[deps]
+
+source_file="res://resources/SFX/HoliznaCC0 - 20 Minute Meditation 4.mp3"
+dest_files=["res://.godot/imported/HoliznaCC0 - 20 Minute Meditation 4.mp3-86ea18d44b37b0a5906e383d76046aff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

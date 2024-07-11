@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bslhrv3eo36wd"]
+[gd_scene load_steps=9 format=3 uid="uid://bslhrv3eo36wd"]
 
 [ext_resource type="Script" path="res://scenes/lobby.gd" id="1_g2fmt"]
 [ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_060bj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://3qs0qr15rxyd" path="res://resources/GUI/Logo2Corrected.png" id="5_5nru5"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="6_8rvip"]
 [ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="7_7fd88"]
+[ext_resource type="AudioStream" uid="uid://pf7rn5li36iq" path="res://resources/SFX/HoliznaCC0 - 20 Minute Meditation 4.mp3" id="8_f52f8"]
 
 [node name="Lobby" type="MarginContainer"]
 anchors_preset = 15
@@ -192,3 +193,8 @@ texture = ExtResource("6_8rvip")
 z_index = -5
 position = Vector2(576, 4)
 texture = ExtResource("7_7fd88")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_f52f8")
+autoplay = true

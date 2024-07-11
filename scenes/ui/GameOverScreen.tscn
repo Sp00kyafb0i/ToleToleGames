@@ -38,7 +38,7 @@ shadow_color = Color(1, 0.129412, 0.94902, 0.313726)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l1pk2"]
 font = ExtResource("2_brq6k")
-font_size = 20
+font_size = 17
 font_color = Color(0.953481, 0.00042047, 0.886921, 1)
 
 [node name="GameOver" type="Control"]
@@ -138,7 +138,16 @@ offset_left = 36.0
 offset_top = 183.0
 offset_right = 221.0
 offset_bottom = 280.0
-text = "TOLETOLE GAMES:"
+text = "TOLETOLE GAMES:
+
+
+
+
+Assets:
+
+Music:
+
+Font:"
 label_settings = SubResource("LabelSettings_l1pk2")
 
 [node name="R" type="Label" parent="CreditsScreen"]
@@ -147,10 +156,16 @@ offset_left = 180.0
 offset_top = 181.0
 offset_right = 365.0
 offset_bottom = 278.0
-text = "CHEN
-CHEN
-CHEN
-CHEN"
+text = "Raul Aliste
+Rodrigo Cornejo
+Felipe Parada
+Daniel Sarazua
+
+Rodrigo Cornejo
+
+HoliznaCC0
+
+Hawtpixel"
 label_settings = ExtResource("1_pi5yt")
 horizontal_alignment = 2
 

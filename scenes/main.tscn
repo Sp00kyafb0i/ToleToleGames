@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4oku66iao0bo"]
+[gd_scene load_steps=18 format=3 uid="uid://b4oku66iao0bo"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ysfbh"]
 [ext_resource type="PackedScene" uid="uid://d0roha2uubrvv" path="res://scenes/background.tscn" id="2_4lfin"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
 [ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="11_hioog"]
+[ext_resource type="AudioStream" uid="uid://f1ams5nt8nsi" path="res://resources/SFX/HoliznaCC0 - An Ocean in Outer Space.mp3" id="15_vjv1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
@@ -174,3 +175,9 @@ texture = ExtResource("11_hioog")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_wjfyv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("15_vjv1s")
+pitch_scale = 0.67
+autoplay = true

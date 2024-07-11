@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://6krbx3xvpube"]
+[gd_scene load_steps=2 format=3 uid="uid://ddohuems781ng"]
 
 [ext_resource type="PackedScene" uid="uid://cbuc70nimk76c" path="res://scenes/obstaculo_temporal.tscn" id="1_ffux1"]
 

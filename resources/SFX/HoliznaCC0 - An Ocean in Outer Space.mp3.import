@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f1ams5nt8nsi"
+path="res://.godot/imported/HoliznaCC0 - An Ocean in Outer Space.mp3-8e8dd3cbe75fa33db8d45086fca65644.mp3str"
+
+[deps]
+
+source_file="res://resources/SFX/HoliznaCC0 - An Ocean in Outer Space.mp3"
+dest_files=["res://.godot/imported/HoliznaCC0 - An Ocean in Outer Space.mp3-8e8dd3cbe75fa33db8d45086fca65644.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
