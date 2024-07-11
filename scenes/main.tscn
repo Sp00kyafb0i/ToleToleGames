@@ -60,7 +60,7 @@ script = ExtResource("9_4t78a")
 boatBeingFollowed = NodePath("../Boat")
 
 [node name="GameOver" parent="Camera2D" instance=ExtResource("6_tn0ar")]
-z_index = 1
+z_index = 200
 offset_left = -230.0
 offset_top = -260.0
 offset_right = -230.0

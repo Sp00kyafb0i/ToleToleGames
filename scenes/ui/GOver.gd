@@ -22,6 +22,5 @@ func _on_back_pressed():
 
 
 func _on_lobby_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/lobby.tscn")
+	get_tree().quit()
 	
