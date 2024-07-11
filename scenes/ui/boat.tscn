@@ -25,7 +25,7 @@ gravity_scale = 0.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(-50, 0)
 linear_velocity = Vector2(50, 0)
-linear_damp = 0.001
+linear_damp = 3.0
 script = ExtResource("1_c50b5")
 
 [node name="BoatCollisionShape" type="CollisionPolygon2D" parent="."]
@@ -86,11 +86,11 @@ shape = SubResource("RectangleShape2D_uniiv")
 disabled = true
 
 [node name="DesiredStearingLeft" type="Marker2D" parent="BoatCollisionShape"]
-position = Vector2(50, 30)
+position = Vector2(90.0883, 30)
 rotation = 0.349066
 
 [node name="DesiredStearingRight" type="Marker2D" parent="BoatCollisionShape"]
-position = Vector2(50, -30)
+position = Vector2(90.0883, -30)
 rotation = 0.698132
 
 [node name="BoatImage2" type="Sprite2D" parent="BoatCollisionShape"]

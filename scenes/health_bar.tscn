@@ -16,7 +16,6 @@ script = ExtResource("1_nke6l")
 position = Vector2(0, -2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-visible = false
 z_index = 5
 position = Vector2(0, -54)
 scale = Vector2(0.212, 0.2)

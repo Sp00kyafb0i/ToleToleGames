@@ -13,9 +13,9 @@
 [ext_resource type="Script" path="res://scenes/Camera.gd" id="9_4t78a"]
 [ext_resource type="Script" path="res://scenes/Borders.gd" id="9_wi85x"]
 [ext_resource type="Texture2D" uid="uid://kdejxdonox5o" path="res://resources/Rim2.png" id="10_7yeyy"]
-[ext_resource type="Script" path="res://scenes/HowToPlay.gd" id="10_jl7c5"]
 [ext_resource type="Texture2D" uid="uid://bwm3x5r611nmi" path="res://resources/Rim2Collition.png" id="11_hioog"]
-[ext_resource type="AudioStream" uid="uid://f1ams5nt8nsi" path="res://resources/SFX/HoliznaCC0 - An Ocean in Outer Space.mp3" id="15_vjv1s"]
+[ext_resource type="PackedScene" uid="uid://dtwcdbco78xlc" path="res://scenes/heart.tscn" id="15_yrbkc"]
+[ext_resource type="Script" path="res://scenes/heart.gd" id="16_w52e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c8s0"]
 size = Vector2(1152, 8)
@@ -83,7 +83,6 @@ position = Vector2(364.661, 376)
 
 [node name="HowToPlay" type="Node2D" parent="Boat"]
 z_index = 3
-script = ExtResource("10_jl7c5")
 
 [node name="A" type="Sprite2D" parent="Boat/HowToPlay"]
 z_index = 3
@@ -98,10 +97,6 @@ position = Vector2(0, 100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_pl0os")
 offset = Vector2(0, -40)
-
-[node name="Timer" type="Timer" parent="Boat/HowToPlay"]
-wait_time = 4.005
-autostart = true
 
 [node name="Borders" type="Node2D" parent="." node_paths=PackedStringArray("playerTrapped")]
 script = ExtResource("9_wi85x")
@@ -182,10 +177,8 @@ texture = ExtResource("11_hioog")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_wjfyv")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("15_vjv1s")
-pitch_scale = 0.67
-autoplay = true
+[node name="Heart" parent="." instance=ExtResource("15_yrbkc")]
+position = Vector2(854, 376)
+script = ExtResource("16_w52e7")
 
-[connection signal="timeout" from="Boat/HowToPlay/Timer" to="Boat/HowToPlay" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Heart" to="Heart" method="_on_area_entered"]

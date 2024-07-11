@@ -12,8 +12,8 @@ signal healthChanged
 @onready var desired_stearing_right = $BoatCollisionShape/DesiredStearingRight
 var stearingHeadingLeft;
 var stearingHeadingRight;
-var stearingTorque = 30000;
-var stearingForce = 100;
+var stearingTorque = 10000;
+var stearingForce = 1000;
 var maxHp = 20
 var healthPoints = 20;
 var isVulnerable = true;
